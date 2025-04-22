@@ -29,4 +29,6 @@ public:
 
 private:
 
+	void LoadRooms();
+
 };
