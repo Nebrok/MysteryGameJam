@@ -2,8 +2,11 @@
 
 #pragma once
 
+#include <iostream>
+#include <random>
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
+#include "AnomalySelectBaseAsset.h"
 #include "AnomalyManager.generated.h"
 
 /**
@@ -14,4 +17,22 @@ class MYSTERYGAMEJAM_API UAnomalyManager : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
 	
+public:
+
+	UFUNCTION(BlueprintCallable)
+	void SetAnomalies(TArray<UAnomalySelectBaseAsset*> loadAnomalies);
+
+	UFUNCTION(BlueprintCallable)
+	void GetAnomaly();
+
+	UFUNCTION(BlueprintCallable)
+	void CorrectSelection();
+
+	UFUNCTION(BlueprintCallable)
+	void WrongSelection();
+
+private:
+
+	TArray<UAnomalySelectBaseAsset*> allAnomalies;
+
 };
