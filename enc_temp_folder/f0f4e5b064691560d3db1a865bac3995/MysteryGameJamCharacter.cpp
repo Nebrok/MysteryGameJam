@@ -106,9 +106,9 @@ void AMysteryGameJamCharacter::Interact()
 	// FHitResult will hold all data returned by our line collision query
 	FHitResult Hit;
 
-	// We set up a line trace from our current location to a point a certain distance ahead of us
+	// We set up a line trace from our current location to a point 1000cm ahead of us
 	FVector TraceStart = GetActorLocation();
-	FVector TraceEnd = GetActorLocation() + GetActorForwardVector() * InteractionDistance;
+	FVector TraceEnd = GetActorLocation() + GetActorForwardVector() * 100.0f;
 
 	// You can use FCollisionQueryParams to further configure the query
 	// Here we add ourselves to the ignored list so we won't block the trace
@@ -127,14 +127,11 @@ void AMysteryGameJamCharacter::Interact()
 	// and its fields will be filled with detailed info about what was hit
 	if (Hit.bBlockingHit && IsValid(Hit.GetActor()))
 	{
-		Cast<ADoor>(Hit.GetActor())->OpenDoor();
 		UE_LOG(LogTemp, Log, TEXT("Trace hit actor: %s"), *Hit.GetActor()->GetName());
 	}
 	else
 	{
 		UE_LOG(LogTemp, Log, TEXT("No Actors were hit"));
 	}
-
-
 
 }
