@@ -23,7 +23,7 @@ void UAnomalyManager::GetAnomaly()
 	{
 		int randomAnomaly = rand() % allAnomalies.Num();
 
-		UE_LOG(LogTemp, Display, TEXT("There is an anomaly: %d"), randomAnomaly);
+		UE_LOG(LogTemp, Display, TEXT("Index: %d"), randomAnomaly);
 	}
 }
 
