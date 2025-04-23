@@ -39,9 +39,6 @@ void URoomManager::SpawnNewRooms(ARoom* callingRoom)
 	newForwardDoor->RoomConnected = newForwardRoom;
 	newBackDoor->RoomConnected = newBackRoom;
 
-	ForwardRoom = newForwardRoom;
-	BackRoom = newBackRoom;
-
 	Doors.Add(newForwardDoor);
 	Doors.Add(newBackDoor);
 
