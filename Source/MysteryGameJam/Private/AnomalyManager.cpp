@@ -13,23 +13,21 @@ void UAnomalyManager::LoadAllAnomalies(TArray<UAnomalySelectBaseAsset*> loadAnom
 
 UAnomalySelectBaseAsset* UAnomalyManager::GetAnomaly()
 {
-	//int anomalyPresent = rand() % 2;
-	//
-	//if (anomalyPresent == 0) //DO NOTHING
-	//{
-	//	UE_LOG(LogTemp, Display, TEXT("There is no anomaly"));
-	//	return nullptr;
-	//}
-	//else
-	//{
-	//	int randomAnomaly = rand() % allAnomalies.Num();
-	//
-	//	UE_LOG(LogTemp, Display, TEXT("There is an anomaly: %d"), randomAnomaly);
-	//
-	//	return allAnomalies[randomAnomaly];
-	//}
-
-	return nullptr;
+	int anomalyPresent = rand() % 2;
+	
+	if (anomalyPresent == 0) //DO NOTHING
+	{
+		UE_LOG(LogTemp, Display, TEXT("There is no anomaly"));
+		return nullptr;
+	}
+	else
+	{
+		int randomAnomaly = rand() % allAnomalies.Num();
+	
+		UE_LOG(LogTemp, Display, TEXT("There is an anomaly: %d"), randomAnomaly);
+	
+		return allAnomalies[randomAnomaly];
+	}
 }
 
 void UAnomalyManager::CorrectSelection()

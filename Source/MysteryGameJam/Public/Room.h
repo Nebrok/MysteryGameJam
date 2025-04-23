@@ -24,7 +24,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<ARoom> BaseRoom;
 
-	UAnomalySelectBaseAsset* AnomalyPresent;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<AActor> DefaultCube;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UAnomalySelectBaseAsset* Anomaly;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool HasAnomaly = false;
 
 protected:
 	// Called when the game starts or when spawned
@@ -33,5 +40,11 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintCallable)
+	void CheckForAnomalyChanges();
+
+	UFUNCTION(BlueprintCallable)
+	void DefaultAnomaly();
 
 };
