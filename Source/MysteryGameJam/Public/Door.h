@@ -23,7 +23,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USceneComponent* SceneComponent;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	ARoom* RoomConnected;
+
 	URoomManager* RoomManager;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

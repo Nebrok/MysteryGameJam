@@ -8,12 +8,7 @@
 void URoomManager::SpawnNewRooms(ARoom* callingRoom)
 {
 	bool movedForward = callingRoom == ForwardRoom;
-	
-	for (int i = 0; i < Doors.Num(); i++)
-	{
-		Doors[i]->Destroy();
-	}
-	Doors.Empty();
+
 
 	CurrentRoom->Destroy();
 	CurrentRoom = callingRoom;
@@ -33,19 +28,32 @@ void URoomManager::SpawnNewRooms(ARoom* callingRoom)
 	ARoom* newForwardRoom = GetWorld()->SpawnActor<ARoom>(CurrentRoom->BaseRoom, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorRightVector() * -700), CurrentRoom->GetActorRotation() + FRotator(0, -90, 0), spawnParams);
 	ARoom* newBackRoom = GetWorld()->SpawnActor<ARoom>(CurrentRoom->BaseRoom, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorForwardVector() * -700), CurrentRoom->GetActorRotation() + FRotator(0, 180, 0), spawnParams);
 
-	ADoor* newForwardDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorRightVector() * -350), CurrentRoom->GetActorRotation() + FRotator(0, 0, 0), spawnParams);
-	ADoor* newBackDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorForwardVector() * -350), CurrentRoom->GetActorRotation() + FRotator(0, -90, 0), spawnParams);
-
-	newForwardDoor->RoomConnected = newForwardRoom;
-	newBackDoor->RoomConnected = newBackRoom;
-
 	ForwardRoom = newForwardRoom;
 	BackRoom = newBackRoom;
 
+
+}
+
+void URoomManager::SpawnNewDoors()
+{
+
+	for (int i = 0; i < Doors.Num(); i++)
+	{
+		Doors[i]->Destroy();
+	}
+	Doors.Empty();
+
+	FActorSpawnParameters spawnParams;
+	spawnParams.bNoFail = true;
+
+	ADoor* newForwardDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorRightVector() * -350), CurrentRoom->GetActorRotation() + FRotator(0, 0, 0), spawnParams);
+	ADoor* newBackDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorForwardVector() * -350), CurrentRoom->GetActorRotation() + FRotator(0, -90, 0), spawnParams);
+	
+	newForwardDoor->RoomConnected = ForwardRoom;
+	newBackDoor->RoomConnected = BackRoom;
+	
 	Doors.Add(newForwardDoor);
 	Doors.Add(newBackDoor);
-
-	//SpawnNewRoom(CurrentRoom->BaseRoom, GetBackRoomLocation(), CurrentRoom->GetActorForwardVector().BackwardVector.ToOrientationRotator());
 }
 
 FVector URoomManager::GetBackRoomLocation()

@@ -49,5 +49,6 @@ void ADoor::OpenDoor()
 
 	RoomManager->SpawnNewRooms(RoomConnected);
 
+	//Destroy();
 }
 

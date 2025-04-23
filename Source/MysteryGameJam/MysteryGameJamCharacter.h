@@ -77,7 +77,7 @@ public:
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
 	UFUNCTION(BlueprintCallable)
-	void Interact();
+	ADoor* Interact();
 
 
 };
