@@ -44,6 +44,13 @@ void ADoor::Tick(float DeltaTime)
 
 void ADoor::OpenDoor()
 {
+	//Check if correct door
+	//If correct update room with anomaly chance + increase score
+	//If incorrect, don't run anomaly check + set score to 0
+
+
+
+
 	Rotate = true;
 	UE_LOG(LogTemp, Display, TEXT("The door is being opened"));
 
