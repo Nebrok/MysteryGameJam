@@ -33,13 +33,6 @@ void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	auto gotRotation = InitialTransform.GetRotation();
-	FRotator NewRotation = FRotator(gotRotation.X, gotRotation.Z + 90, gotRotation.Y);
-
-	if (Rotate)
-	{
-		SetActorRotation(NewRotation);
-	}
 }
 
 void ADoor::OpenDoor()
@@ -56,6 +49,5 @@ void ADoor::OpenDoor()
 
 	RoomManager->SpawnNewRooms(RoomConnected);
 
-	Destroy();
 }
 

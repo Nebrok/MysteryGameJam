@@ -33,22 +33,22 @@ void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	auto gotRotation = InitialTransform.GetRotation();
-	FRotator NewRotation = FRotator(gotRotation.X, gotRotation.Z + 90, gotRotation.Y);
-
-	if (Rotate)
-	{
-		SetActorRotation(NewRotation);
-	}
 }
 
 void ADoor::OpenDoor()
 {
+	//Check if correct door
+	//If correct update room with anomaly chance + increase score
+	//If incorrect, don't run anomaly check + set score to 0
+
+
+
+
 	Rotate = true;
 	UE_LOG(LogTemp, Display, TEXT("The door is being opened"));
 
 	RoomManager->SpawnNewRooms(RoomConnected);
 
-	Destroy();
+	//Destroy();
 }
 

@@ -32,7 +32,11 @@ public:
 
 	TArray<ADoor*> Doors;
 
+	UFUNCTION(BlueprintCallable)
 	void SpawnNewRooms(ARoom* callingRoom);
+
+	UFUNCTION(BlueprintCallable)
+	void SpawnNewDoors();
 	
 	FVector GetBackRoomLocation();
 
