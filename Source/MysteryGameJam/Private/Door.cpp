@@ -23,6 +23,7 @@ void ADoor::BeginPlay()
 {
 	Super::BeginPlay();
 
+	RoomManager = GetWorld()->GetGameInstance()->GetSubsystem<URoomManager>();
 	InitialTransform = GetTransform();
 	
 }
@@ -45,5 +46,9 @@ void ADoor::OpenDoor()
 {
 	Rotate = true;
 	UE_LOG(LogTemp, Display, TEXT("The door is being opened"));
+
+	RoomManager->SpawnNewRooms(RoomConnected);
+
+	Destroy();
 }
 

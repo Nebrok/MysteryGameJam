@@ -127,8 +127,8 @@ void AMysteryGameJamCharacter::Interact()
 	// and its fields will be filled with detailed info about what was hit
 	if (Hit.bBlockingHit && IsValid(Hit.GetActor()))
 	{
-		Cast<ADoor>(Hit.GetActor())->OpenDoor();
 		UE_LOG(LogTemp, Log, TEXT("Trace hit actor: %s"), *Hit.GetActor()->GetName());
+		Cast<ADoor>(Hit.GetActor())->OpenDoor();
 	}
 	else
 	{

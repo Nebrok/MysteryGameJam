@@ -24,7 +24,7 @@ public:
 	void LoadAllAnomalies(TArray<UAnomalySelectBaseAsset*> loadAnomalies);
 
 	UFUNCTION(BlueprintCallable)
-	UAnomalySelectBaseAsset* GetAnomaly();
+	bool GetAnomaly(ARoom* callingRoom);
 
 	UFUNCTION(BlueprintCallable)
 	void CorrectSelection();
