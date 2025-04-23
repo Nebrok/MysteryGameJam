@@ -101,7 +101,7 @@ void AMysteryGameJamCharacter::Look(const FInputActionValue& Value)
 	}
 }
 
-void AMysteryGameJamCharacter::Interact()
+ADoor* AMysteryGameJamCharacter::Interact()
 {
 	// FHitResult will hold all data returned by our line collision query
 	FHitResult Hit;
@@ -128,13 +128,19 @@ void AMysteryGameJamCharacter::Interact()
 	if (Hit.bBlockingHit && IsValid(Hit.GetActor()))
 	{
 		UE_LOG(LogTemp, Log, TEXT("Trace hit actor: %s"), *Hit.GetActor()->GetName());
-		Cast<ADoor>(Hit.GetActor())->OpenDoor();
+		ADoor* doorHit = Cast<ADoor>(Hit.GetActor());
+		
+		if (doorHit != nullptr)
+		{
+			doorHit->OpenDoor();
+		}
+
+		return doorHit;
 	}
 	else
 	{
 		UE_LOG(LogTemp, Log, TEXT("No Actors were hit"));
+		return nullptr;
 	}
-
-
 
 }

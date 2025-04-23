@@ -22,7 +22,6 @@ public:
 	// So that we can have multiple children connected to the root component
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USceneComponent* SceneComponent;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	ARoom* RoomConnected;
 
