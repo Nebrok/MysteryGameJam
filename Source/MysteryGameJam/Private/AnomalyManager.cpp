@@ -11,14 +11,14 @@ void UAnomalyManager::LoadAllAnomalies(TArray<UAnomalySelectBaseAsset*> loadAnom
 
 }
 
-bool UAnomalyManager::GetAnomaly(ARoom* callingRoom)
+UAnomalySelectBaseAsset* UAnomalyManager::GetAnomaly()
 {
 	int anomalyPresent = rand() % 2;
 
 	if (anomalyPresent == 0) //DO NOTHING
 	{
 		UE_LOG(LogTemp, Display, TEXT("There is no anomaly"));
-		return false;
+		return nullptr;
 	}
 	else
 	{
@@ -26,9 +26,7 @@ bool UAnomalyManager::GetAnomaly(ARoom* callingRoom)
 
 		UE_LOG(LogTemp, Display, TEXT("There is an anomaly: %d"), randomAnomaly);
 
-		//LOAD ANOMALY ROOM HERE
-
-		return true;
+		return allAnomalies[randomAnomaly];
 	}
 }
 

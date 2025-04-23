@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Room.generated.h"
 
+class UAnomalySelectBaseAsset;
 class URoomManager;
 
 UCLASS()
@@ -23,7 +24,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<ARoom> BaseRoom;
 
-	bool AnomalyPresent = false;
+	UAnomalySelectBaseAsset* AnomalyPresent;
 
 protected:
 	// Called when the game starts or when spawned
