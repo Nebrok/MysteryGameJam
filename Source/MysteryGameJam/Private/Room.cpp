@@ -19,14 +19,32 @@ void ARoom::BeginPlay()
 	GameInstance = GetWorld()->GetGameInstance();
 	RoomManager = GameInstance->GetSubsystem<URoomManager>();
 
-	//AnomalyPresent = GameInstance->GetSubsystem<UAnomalyManager>()->GetAnomaly();
+	CheckForAnomalyChanges();
 }
 
 // Called every frame
 void ARoom::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
 
-	//RoomManager->SpawnNewRooms(this);
+void ARoom::CheckForAnomalyChanges()
+{
+	Anomaly = GameInstance->GetSubsystem<UAnomalyManager>()->GetAnomaly();
+	if (Anomaly != nullptr)
+	{
+		HasAnomaly = true;
+		DefaultAnomaly();
+	}
+}
+
+void ARoom::DefaultAnomaly()
+{
+	FActorSpawnParameters spawnParams;
+	spawnParams.bNoFail = true;
+
+	FVector location = GetActorLocation();
+
+	AActor* newRoom = GetWorld()->SpawnActor<AActor>(DefaultCube, location, FRotator(0,0,0), spawnParams);
 }
 
