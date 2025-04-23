@@ -5,32 +5,28 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "RoomManager.h"
-#include "WorldBuilder.generated.h"
-
-class ARoom;
-class ADoor;
+#include "Room.generated.h"
 
 UCLASS()
-class MYSTERYGAMEJAM_API AWorldBuilder : public AActor
+class MYSTERYGAMEJAM_API ARoom : public AActor
 {
 	GENERATED_BODY()
-	
+
 public:	
 	// Sets default values for this actor's properties
-	AWorldBuilder();
-	URoomManager* RoomManager;
+	ARoom();
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	UGameInstance* GameInstance;
+	URoomManager* RoomManager;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<ARoom> BaseRoom;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSubclassOf<ADoor> BaseDoor;
+	bool AnomalyPresent = false;
 
-	void SpawnInitRooms();
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 public:	
 	// Called every frame

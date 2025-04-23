@@ -2,6 +2,8 @@
 
 
 #include "WorldBuilder.h"
+#include "Room.h"
+#include "Door.h"
 
 // Sets default values
 AWorldBuilder::AWorldBuilder()
@@ -15,7 +17,37 @@ AWorldBuilder::AWorldBuilder()
 void AWorldBuilder::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	RoomManager = GetWorld()->GetGameInstance()->GetSubsystem<URoomManager>();
+
+	SpawnInitRooms();
+}
+
+void AWorldBuilder::SpawnInitRooms()
+{
+	FActorSpawnParameters spawnParams;
+	spawnParams.bNoFail = true;
+
+
+	ARoom* newCurrentRoom = GetWorld()->SpawnActor<ARoom>(BaseRoom, FVector(0,0,0), FRotator(0, 0, 0), spawnParams);
+	ARoom* newForwardRoom = GetWorld()->SpawnActor<ARoom>(BaseRoom, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorRightVector() * -700), newCurrentRoom->GetActorRotation() + FRotator(0,-90,0), spawnParams);
+	ARoom* newBackRoom = GetWorld()->SpawnActor<ARoom>(BaseRoom, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorForwardVector() * -700), newCurrentRoom->GetActorRotation() + FRotator(0,180,0), spawnParams);
+
+	ADoor* newForwardDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorRightVector() * -350), newCurrentRoom->GetActorRotation() + FRotator(0, 0, 0), spawnParams);
+	ADoor* newBackDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorForwardVector() * -350), newCurrentRoom->GetActorRotation() + FRotator(0, -90, 0), spawnParams);
+
+	newForwardDoor->RoomConnected = newForwardRoom;
+	newBackDoor->RoomConnected = newBackRoom;
+
+	RoomManager->BaseDoor = BaseDoor;
+
+	RoomManager->CurrentRoom = newCurrentRoom;
+	RoomManager->ForwardRoom = newForwardRoom;
+	RoomManager->BackRoom = newBackRoom;
+
+	RoomManager->Doors.Add(newForwardDoor);
+	RoomManager->Doors.Add(newBackDoor);
+
 }
 
 // Called every frame

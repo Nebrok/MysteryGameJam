@@ -1,8 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "RoomManager.h"
+
 #include "Room.h"
-#include "AnomalyManager.h"
 
 // Sets default values
 ARoom::ARoom()
@@ -19,7 +18,7 @@ void ARoom::BeginPlay()
 	GameInstance = GetWorld()->GetGameInstance();
 	RoomManager = GameInstance->GetSubsystem<URoomManager>();
 
-	AnomalyPresent = GameInstance->GetSubsystem<UAnomalyManager>()->GetAnomaly(this);
+	
 }
 
 // Called every frame

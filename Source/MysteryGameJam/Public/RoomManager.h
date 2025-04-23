@@ -8,6 +8,7 @@
 
 
 class ARoom;
+class ADoor;
 
 /**
  * 
@@ -25,6 +26,11 @@ public:
 	ARoom* CurrentRoom;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	ARoom* BackRoom;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<ADoor> BaseDoor;
+
+	TArray<ADoor*> Doors;
 
 	void SpawnNewRooms(ARoom* callingRoom);
 	

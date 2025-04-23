@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Room.h"
+#include "RoomManager.h"
 #include "Components/BoxComponent.h"
 #include "Door.generated.h"
 
@@ -21,7 +23,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USceneComponent* SceneComponent;
 
-	// Our snake collider
+	ARoom* RoomConnected;
+	URoomManager* RoomManager;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UBoxComponent* CollisionComponent;
 

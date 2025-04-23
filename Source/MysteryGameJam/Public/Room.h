@@ -4,8 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "RoomManager.h"
 #include "Room.generated.h"
+
+class URoomManager;
 
 UCLASS()
 class MYSTERYGAMEJAM_API ARoom : public AActor
@@ -22,6 +23,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<ARoom> BaseRoom;
 
+	bool AnomalyPresent = false;
 
 protected:
 	// Called when the game starts or when spawned

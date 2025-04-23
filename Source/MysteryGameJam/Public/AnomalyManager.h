@@ -9,6 +9,7 @@
 #include "AnomalySelectBaseAsset.h"
 #include "AnomalyManager.generated.h"
 
+class ARoom;
 /**
  * 
  */
@@ -20,10 +21,10 @@ class MYSTERYGAMEJAM_API UAnomalyManager : public UGameInstanceSubsystem
 public:
 
 	UFUNCTION(BlueprintCallable)
-	void SetAnomalies(TArray<UAnomalySelectBaseAsset*> loadAnomalies);
+	void LoadAllAnomalies(TArray<UAnomalySelectBaseAsset*> loadAnomalies);
 
 	UFUNCTION(BlueprintCallable)
-	void GetAnomaly();
+	bool GetAnomaly(ARoom* callingRoom);
 
 	UFUNCTION(BlueprintCallable)
 	void CorrectSelection();
