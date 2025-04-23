@@ -42,6 +42,8 @@ public:
 
 	AActor* SpawnNewRoom(UClass* baseRoom, FVector location, FRotator rotation);
 
+	void CheckCorrectDoor(bool forward);
+
 };
 
 

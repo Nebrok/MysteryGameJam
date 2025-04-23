@@ -33,11 +33,7 @@ void AWorldBuilder::SpawnInitRooms()
 	ARoom* newForwardRoom = GetWorld()->SpawnActor<ARoom>(BaseRoom, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorRightVector() * -700), newCurrentRoom->GetActorRotation() + FRotator(0,-90,0), spawnParams);
 	ARoom* newBackRoom = GetWorld()->SpawnActor<ARoom>(BaseRoom, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorForwardVector() * -700), newCurrentRoom->GetActorRotation() + FRotator(0,180,0), spawnParams);
 
-	ADoor* newForwardDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorRightVector() * -350), newCurrentRoom->GetActorRotation() + FRotator(0, 0, 0), spawnParams);
-	ADoor* newBackDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorForwardVector() * -350), newCurrentRoom->GetActorRotation() + FRotator(0, -90, 0), spawnParams);
 
-	newForwardDoor->RoomConnected = newForwardRoom;
-	newBackDoor->RoomConnected = newBackRoom;
 
 	RoomManager->BaseDoor = BaseDoor;
 
@@ -45,8 +41,8 @@ void AWorldBuilder::SpawnInitRooms()
 	RoomManager->ForwardRoom = newForwardRoom;
 	RoomManager->BackRoom = newBackRoom;
 
-	RoomManager->Doors.Add(newForwardDoor);
-	RoomManager->Doors.Add(newBackDoor);
+	RoomManager->SpawnNewDoors();
+
 
 }
 

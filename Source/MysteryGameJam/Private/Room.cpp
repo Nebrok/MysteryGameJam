@@ -19,7 +19,6 @@ void ARoom::BeginPlay()
 	GameInstance = GetWorld()->GetGameInstance();
 	RoomManager = GameInstance->GetSubsystem<URoomManager>();
 
-	CheckForAnomalyChanges();
 }
 
 // Called every frame

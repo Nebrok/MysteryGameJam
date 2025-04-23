@@ -48,6 +48,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool Rotate;
 
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -55,4 +56,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OpenDoor();
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool IsForward = false;
 };

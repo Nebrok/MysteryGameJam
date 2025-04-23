@@ -52,6 +52,8 @@ void URoomManager::SpawnNewDoors()
 	newForwardDoor->RoomConnected = ForwardRoom;
 	newBackDoor->RoomConnected = BackRoom;
 	
+	newForwardDoor->IsForward = true;
+
 	Doors.Add(newForwardDoor);
 	Doors.Add(newBackDoor);
 }
@@ -71,4 +73,19 @@ AActor* URoomManager::SpawnNewRoom(UClass* baseRoom, FVector location, FRotator 
 
 	AActor* newRoom = GetWorld()->SpawnActor<ARoom>(baseRoom, location, rotation, spawnParams);
 	return newRoom;
+}
+
+void URoomManager::CheckCorrectDoor(bool forward)
+{
+	if (forward && !CurrentRoom->HasAnomaly || !forward && CurrentRoom->HasAnomaly)
+	{
+		//score ++
+		UE_LOG(LogTemp, Display, TEXT("YAY"));
+
+		ForwardRoom->CheckForAnomalyChanges();
+		return;
+	}
+
+	//score = 0
+	UE_LOG(LogTemp, Display, TEXT("NOUR"));
 }
