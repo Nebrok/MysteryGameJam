@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "RoomManager.h"
 #include "Room.h"
+#include "RoomManager.h"
 #include "AnomalyManager.h"
 
 // Sets default values
