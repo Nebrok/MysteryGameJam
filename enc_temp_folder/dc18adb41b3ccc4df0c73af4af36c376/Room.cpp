@@ -19,7 +19,7 @@ void ARoom::BeginPlay()
 	GameInstance = GetWorld()->GetGameInstance();
 	RoomManager = GameInstance->GetSubsystem<URoomManager>();
 
-	//AnomalyPresent = GameInstance->GetSubsystem<UAnomalyManager>()->GetAnomaly();
+	AnomalyPresent = GameInstance->GetSubsystem<UAnomalyManager>()->GetAnomaly();
 }
 
 // Called every frame
