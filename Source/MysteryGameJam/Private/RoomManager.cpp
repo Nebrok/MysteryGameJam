@@ -23,6 +23,8 @@ void URoomManager::SpawnWhenEnter(ARoom* callingRoom, ADoor* doorThatIsEntered)
 
 	CurrentRoom = callingRoom;
 
+	CurrentRoom->ClockTicking->AllowedToTick = true;
+
 	FActorSpawnParameters spawnParams;
 	spawnParams.bNoFail = true;
 

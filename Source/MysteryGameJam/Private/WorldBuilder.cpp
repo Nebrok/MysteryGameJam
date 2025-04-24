@@ -46,8 +46,9 @@ void AWorldBuilder::SpawnInitRooms()
 	RoomManager->ForwardDoor = newForwardDoor;
 	RoomManager->BackDoor = newBackDoor;
 
-	newForwardDoor->IsForward = true;
+	newCurrentRoom->ClockTicking->AllowedToTick = true;
 
+	newForwardDoor->IsForward = true;
 	newForwardDoor->RoomConnected = newForwardRoom;
 	newBackDoor->RoomConnected = newBackRoom;
 

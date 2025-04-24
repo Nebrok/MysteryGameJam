@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "ClockTicking.h"
 #include "Room.generated.h"
 
 class UAnomalySelectBaseAsset;
@@ -33,6 +34,8 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool HasAnomaly = false;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UClockTicking* ClockTicking;
 
 	//Room Object References
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Existing Object Reference")
