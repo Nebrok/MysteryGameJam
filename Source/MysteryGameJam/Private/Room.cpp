@@ -37,11 +37,16 @@ void ARoom::CheckForAnomalyChanges()
 	}
 
 	HasAnomaly = true;
-	DefaultAnomaly();
 
+	//TestAnomaly();
 	MassiveIfCheck();
 }
 
+/*
+* We just had 4 days
+* Unreal unknown, it was new
+* We all know this sucks
+*/
 void ARoom::MassiveIfCheck()
 {
 	if (Anomaly->FlipWallPaper)
@@ -128,6 +133,22 @@ void ARoom::MassiveIfCheck()
 	{
 		AddedAirVent();
 	}
+	if (Anomaly->DeleteBox1)
+	{
+		DeleteBox1();
+	}
+	if (Anomaly->CornerChairRotated)
+	{
+		CornerChairRotated();
+	}
+	if (Anomaly->BedsideRotated)
+	{
+		BedsideRotated();
+	}
+	if (Anomaly->PillowDeleted)
+	{
+		PillowDeleted();
+	}
 }
 
 void ARoom::SetRoomObjectReferences_Implementation()
@@ -146,18 +167,12 @@ void ARoom::DefaultAnomaly()
 
 void ARoom::TestAnomaly()
 {
-	CuckChairRotated();
+	
 }
-
 
 void ARoom::FlipWallpaper()
 {
-	int foo = 5;
-	bool bar = false;
-	if (foo == 5)
-	{
-		bar = true;
-	}
+
 }
 
 void ARoom::DifferentTime()
@@ -166,8 +181,7 @@ void ARoom::DifferentTime()
 
 void ARoom::UnmadeBed()
 {
-	//Unmaking the bed her e:)
-	int hej = 3;
+
 }
 
 void ARoom::AlternateBathroomTiling()
@@ -189,9 +203,6 @@ void ARoom::NarrowBedLegs()
 void ARoom::CuckChairRotated()
 {
 
-	auto quatRotation = CuckChair->GetRelativeTransform().GetRotation();
-	FRotator newRotation = FRotator(quatRotation.Euler().X, quatRotation.Euler().Z + 90, quatRotation.Euler().Y);
-	CuckChair->SetRelativeRotation(newRotation);
 }
 
 void ARoom::PersonInCuckChair()
@@ -248,6 +259,30 @@ void ARoom::AddedAirVent()
 
 void ARoom::PaintingChanged()
 {
+}
+
+void ARoom::DeleteBox1()
+{
+	Box1->DestroyComponent();
+}
+
+void ARoom::CornerChairRotated()
+{
+	auto quatRotation = CuckChair->GetRelativeTransform().GetRotation();
+	FRotator newRotation = FRotator(quatRotation.Euler().X, quatRotation.Euler().Z + 90, quatRotation.Euler().Y);
+	CuckChair->SetRelativeRotation(newRotation);
+}
+
+void ARoom::BedsideRotated()
+{
+	auto quatRotation = BedsideTable->GetRelativeTransform().GetRotation();
+	FRotator newRotation = FRotator(quatRotation.Euler().X, quatRotation.Euler().Z + 90, quatRotation.Euler().Y);
+	BedsideTable->SetRelativeRotation(newRotation);
+}
+
+void ARoom::PillowDeleted()
+{
+	Pillow->DestroyComponent();
 }
 
 

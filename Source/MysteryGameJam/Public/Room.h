@@ -60,6 +60,16 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
 	UStaticMeshComponent* Pillow;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* Box1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* Box2;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* Box3;
+
+
 	//Static Meshes for spawning to room
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "New Object Reference")
 	UStaticMesh* NewPillow1;
@@ -112,6 +122,14 @@ protected:
 	void AddedAirVent();
 
 	void PaintingChanged();
+
+	void DeleteBox1();
+
+	void CornerChairRotated();
+
+	void BedsideRotated();
+
+	void PillowDeleted();
 
 private:
 	void MassiveIfCheck();
