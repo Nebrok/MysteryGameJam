@@ -19,6 +19,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool AllowedToTick;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent* SecondHand;
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

@@ -55,7 +55,7 @@ public:
 	UStaticMeshComponent* MinuteHand;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
-	UStaticMeshComponent* FloorLamp;
+	UStaticMeshComponent* FloorLampRef;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
 	UStaticMeshComponent* Pillow;
