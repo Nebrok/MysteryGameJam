@@ -97,12 +97,6 @@ void ARoom::DefaultAnomaly()
 
 void ARoom::FlipWallpaper()
 {
-	int foo = 5;
-	bool bar = false;
-	if (foo == 5)
-	{
-		bar = true;
-	}
 }
 
 void ARoom::DifferentTime()
