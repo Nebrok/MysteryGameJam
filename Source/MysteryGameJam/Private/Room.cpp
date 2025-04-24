@@ -88,7 +88,42 @@ void ARoom::CheckForAnomalyChanges()
 	{
 		CloseBathroomDoor();
 	}
-	
+	if (Anomaly->SwappedFurniture1)
+	{
+		SwappedFurniture1();
+	}
+	if (Anomaly->SwappedFurniture2)
+	{
+		SwappedFurniture2();
+	}
+	if (Anomaly->SwappedFurniture3)
+	{
+		SwappedFurniture3();
+	}
+	if (Anomaly->EyesUnderBed)
+	{
+		EyesUnderBed();
+	}
+	if (Anomaly->LampMoved)
+	{
+		LampMoved();
+	}
+	if (Anomaly->PaintingMoved)
+	{
+		PaintingMoved();
+	}
+	if (Anomaly->PaintingChanged)
+	{
+		PaintingChanged();
+	}
+	if (Anomaly->PersonOutSideWindow)
+	{
+		PersonOutsideWindow();
+	}
+	if (Anomaly->AddedAirVent)
+	{
+		AddedAirVent();
+	}
 
 }
 
@@ -160,6 +195,42 @@ void ARoom::WiltedFlower()
 }
 
 void ARoom::CloseBathroomDoor()
+{
+}
+
+void ARoom::SwappedFurniture1()
+{
+}
+
+void ARoom::SwappedFurniture2()
+{
+}
+
+void ARoom::SwappedFurniture3()
+{
+}
+
+void ARoom::EyesUnderBed()
+{
+}
+
+void ARoom::LampMoved()
+{
+}
+
+void ARoom::PaintingMoved()
+{
+}
+
+void ARoom::PersonOutsideWindow()
+{
+}
+
+void ARoom::AddedAirVent()
+{
+}
+
+void ARoom::PaintingChanged()
 {
 }
 

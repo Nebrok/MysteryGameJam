@@ -62,4 +62,6 @@ public:
 	  bool PersonOutSideWindow;
 	  UPROPERTY(EditAnywhere)
 	  bool AddedAirVent;
+	  UPROPERTY(EditAnywhere)
+	  bool PaintingChanged;
 };

@@ -63,7 +63,23 @@ protected:
 
 	void CloseBathroomDoor();
 
-	
+	void SwappedFurniture1();
+
+	void SwappedFurniture2();
+
+	void SwappedFurniture3();
+
+	void EyesUnderBed();
+
+	void LampMoved();
+
+	void PaintingMoved();
+
+	void PersonOutsideWindow();
+
+	void AddedAirVent();
+
+	void PaintingChanged();
 
 
 public:	
