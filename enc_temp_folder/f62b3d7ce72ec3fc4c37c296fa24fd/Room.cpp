@@ -80,14 +80,6 @@ void ARoom::CheckForAnomalyChanges()
 	{
 		DeadBodyBathTub();
 	}
-	if (Anomaly->WiltedFlower)
-	{
-		WiltedFlower();
-	}
-	if (Anomaly->ClosedBathroomDoor)
-	{
-		CloseBathroomDoor();
-	}
 	
 
 }
@@ -113,8 +105,6 @@ void ARoom::DifferentTime()
 
 void ARoom::UnmadeBed()
 {
-	//Unmaking the bed her e:)
-	int hej = 3;
 }
 
 void ARoom::AlternateBathroomTiling()
@@ -150,10 +140,6 @@ void ARoom::BloodPoolBathroom()
 }
 
 void ARoom::WiltedFlower()
-{
-}
-
-void ARoom::CloseBathroomDoor()
 {
 }
 
