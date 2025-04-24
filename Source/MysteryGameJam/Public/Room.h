@@ -33,9 +33,58 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool HasAnomaly = false;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent* CuckChair;
+
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	void FlipWallpaper();
+
+	void DifferentTime();
+
+	void UnmadeBed();
+
+	void AlternateBathroomTiling();
+
+	void CarpetColourChange();
+
+	void LampFlicker();
+
+	void NarrowBedLegs();
+
+	void CuckChairRotated();
+
+	void PersonInCuckChair();
+
+	void DeadBodyBathTub();
+
+	void BloodPoolBathroom();
+
+	void WiltedFlower();
+
+	void CloseBathroomDoor();
+
+	void SwappedFurniture1();
+
+	void SwappedFurniture2();
+
+	void SwappedFurniture3();
+
+	void EyesUnderBed();
+
+	void LampMoved();
+
+	void PaintingMoved();
+
+	void PersonOutsideWindow();
+
+	void AddedAirVent();
+
+	void PaintingChanged();
+
 
 public:	
 	// Called every frame
@@ -46,5 +95,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void DefaultAnomaly();
+
+	UFUNCTION(BlueprintCallable)
+	void TestAnomaly();
 
 };

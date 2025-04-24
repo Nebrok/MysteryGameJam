@@ -46,6 +46,22 @@ public:
 	  bool WiltedFlower;
 	  UPROPERTY(EditAnywhere)
 	  bool ClosedBathroomDoor;
-
-
+	  UPROPERTY(EditAnywhere)
+	  bool SwappedFurniture1;
+	  UPROPERTY(EditAnywhere)
+	  bool SwappedFurniture2;
+	  UPROPERTY(EditAnywhere)
+	  bool SwappedFurniture3;
+	  UPROPERTY(EditAnywhere)
+	  bool EyesUnderBed;
+	  UPROPERTY(EditAnywhere)
+	  bool LampMoved;
+	  UPROPERTY(EditAnywhere)
+	  bool PaintingMoved;
+	  UPROPERTY(EditAnywhere)
+	  bool PersonOutSideWindow;
+	  UPROPERTY(EditAnywhere)
+	  bool AddedAirVent;
+	  UPROPERTY(EditAnywhere)
+	  bool PaintingChanged;
 };
