@@ -18,7 +18,6 @@ void ARoom::BeginPlay()
 	Super::BeginPlay();
 	GameInstance = GetWorld()->GetGameInstance();
 	RoomManager = GameInstance->GetSubsystem<URoomManager>();
-
 }
 
 
@@ -40,6 +39,11 @@ void ARoom::CheckForAnomalyChanges()
 	HasAnomaly = true;
 	DefaultAnomaly();
 
+	MassiveIfCheck();
+}
+
+void ARoom::MassiveIfCheck()
+{
 	if (Anomaly->FlipWallPaper)
 	{
 		FlipWallpaper();
@@ -124,9 +128,7 @@ void ARoom::CheckForAnomalyChanges()
 	{
 		AddedAirVent();
 	}
-
 }
-
 
 void ARoom::SetRoomObjectReferences_Implementation()
 {
@@ -247,4 +249,5 @@ void ARoom::AddedAirVent()
 void ARoom::PaintingChanged()
 {
 }
+
 

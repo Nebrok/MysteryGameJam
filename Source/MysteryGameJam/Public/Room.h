@@ -33,8 +33,33 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool HasAnomaly = false;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+
+	//Room Object References
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Existing Object Reference")
+	UStaticMeshComponent* CornerChair;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
 	UStaticMeshComponent* CuckChair;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* BedsideTable;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* ClockBack;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* HourHand;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* MinuteHand;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* FloorLamp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* Pillow;
+
+	//Static Meshes for spawning to room
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "New Object Reference")
+	UStaticMesh* NewPillow1;
 
 
 protected:
@@ -85,6 +110,8 @@ protected:
 
 	void PaintingChanged();
 
+private:
+	void MassiveIfCheck();
 
 public:	
 	// Called every frame
