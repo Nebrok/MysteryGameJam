@@ -17,7 +17,13 @@ public:
 	UClockTicking();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	bool AllowedToTick;
+	float TimeElapsed;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int SecondsElapsed;
+
+	//UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool AllowedToTick = false;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* SecondHand;

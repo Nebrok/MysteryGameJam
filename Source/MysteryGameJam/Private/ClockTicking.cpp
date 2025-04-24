@@ -27,8 +27,28 @@ void UClockTicking::BeginPlay()
 // Called every frame
 void UClockTicking::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	if (!AllowedToTick)
+	{
+		return;
+	}
+	
+	TimeElapsed += DeltaTime;
+	
+	if (TimeElapsed < 1)
+	{
+		return;
+	}
+	
+	SecondHand->SetRelativeRotation(SecondHand->GetRelativeRotation().Add(0, 0, 6));
+	
+	TimeElapsed = 0;
+	SecondsElapsed++;
+	
+	if (SecondsElapsed == 60)
+	{
+		//DIE HERE
+	}
+
 }
 

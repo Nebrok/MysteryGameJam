@@ -46,6 +46,10 @@ void AWorldBuilder::SpawnInitRooms()
 	RoomManager->ForwardDoor = newForwardDoor;
 	RoomManager->BackDoor = newBackDoor;
 
+	newCurrentRoom->SetRoomObjectReferences();
+	newForwardRoom->SetRoomObjectReferences();
+	newBackRoom->SetRoomObjectReferences();
+
 	newCurrentRoom->ClockTicking->AllowedToTick = true;
 
 	newForwardDoor->IsForward = true;
