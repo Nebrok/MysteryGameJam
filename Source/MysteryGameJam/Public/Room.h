@@ -33,6 +33,10 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool HasAnomaly = false;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent* CuckChair;
+
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -75,5 +79,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void DefaultAnomaly();
+
+	UFUNCTION(BlueprintCallable)
+	void TestAnomaly();
 
 };

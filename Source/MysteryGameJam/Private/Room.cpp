@@ -102,6 +102,11 @@ void ARoom::DefaultAnomaly()
 	AActor* newRoom = GetWorld()->SpawnActor<AActor>(DefaultCube, location, FRotator(0,0,0), spawnParams);
 }
 
+void ARoom::TestAnomaly()
+{
+	CuckChairRotated();
+}
+
 
 void ARoom::FlipWallpaper()
 {
@@ -141,6 +146,10 @@ void ARoom::NarrowBedLegs()
 
 void ARoom::CuckChairRotated()
 {
+
+	auto quatRotation = CuckChair->GetRelativeTransform().GetRotation();
+	FRotator newRotation = FRotator(quatRotation.Euler().X, quatRotation.Euler().Z + 90, quatRotation.Euler().Y);
+	CuckChair->SetRelativeRotation(newRotation);
 }
 
 void ARoom::PersonInCuckChair()
