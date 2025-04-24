@@ -48,7 +48,7 @@ void ADoor::OpenDoor()
 	UE_LOG(LogTemp, Display, TEXT("The door is being opened"));
 
 	RoomManager->CheckCorrectDoor(IsForward);
-	RoomManager->SpawnNewRooms(RoomConnected);
+	RoomManager->SpawnWhenEnter(RoomConnected, this);
 
 }
 

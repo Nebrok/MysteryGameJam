@@ -26,17 +26,25 @@ public:
 	ARoom* CurrentRoom;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	ARoom* BackRoom;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	ARoom* RoomExited;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	ADoor* ForwardDoor;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	ADoor* DoorEntered;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	ADoor* BackDoor;
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<ADoor> BaseDoor;
 
-	TArray<ADoor*> Doors;
+	UFUNCTION(BlueprintCallable)
+	void SpawnWhenEnter(ARoom* callingRoom, ADoor* doorThatIsEntered);
 
 	UFUNCTION(BlueprintCallable)
-	void SpawnNewRooms(ARoom* callingRoom);
-
-	UFUNCTION(BlueprintCallable)
-	void SpawnNewDoors();
+	void SpawnAfterAnimation(ARoom* callingRoom);
 	
 	FVector GetBackRoomLocation();
 
