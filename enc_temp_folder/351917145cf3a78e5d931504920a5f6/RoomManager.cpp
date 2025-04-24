@@ -2,7 +2,7 @@
 
 
 #include "RoomManager.h"
-#include "ScoreKeeping.h"
+#include "AnomalousGameState.h"
 #include "Door.h"
 #include "Room.h"
 
@@ -82,9 +82,8 @@ void URoomManager::CheckCorrectDoor(bool forward)
 	{
 		//score ++
 		UE_LOG(LogTemp, Display, TEXT("YAY"));
-
-
-		GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>()->AddToScore();
+		//GetWorld()->GetGameState<AAnomalousGameState>()->AddToScore();
+		
 
 		ForwardRoom->CheckForAnomalyChanges();
 		return;
@@ -92,5 +91,5 @@ void URoomManager::CheckCorrectDoor(bool forward)
 
 	//score = 0
 	UE_LOG(LogTemp, Display, TEXT("NOUR"));
-	GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>()->ResetScore();
+	//GetWorld()->GetGameState<AAnomalousGameState>()->ResetScore();
 }
