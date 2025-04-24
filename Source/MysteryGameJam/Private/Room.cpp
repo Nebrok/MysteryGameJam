@@ -127,6 +127,11 @@ void ARoom::CheckForAnomalyChanges()
 
 }
 
+
+void ARoom::SetRoomObjectReferences_Implementation()
+{
+}
+
 void ARoom::DefaultAnomaly()
 {
 	FActorSpawnParameters spawnParams;

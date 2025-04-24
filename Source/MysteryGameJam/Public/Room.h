@@ -93,6 +93,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void CheckForAnomalyChanges();
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void SetRoomObjectReferences();
+
+	void SetRoomObjectReferences_Implementation();
+
+
 	UFUNCTION(BlueprintCallable)
 	void DefaultAnomaly();
 
