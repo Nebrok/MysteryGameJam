@@ -2,7 +2,6 @@
 
 
 #include "ClockTicking.h"
-#include "Kismet/GameplayStatics.h"
 
 // Sets default values for this component's properties
 UClockTicking::UClockTicking()
@@ -48,7 +47,7 @@ void UClockTicking::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 	
 	if (SecondsElapsed == 60)
 	{
-		UGameplayStatics::OpenLevel(this, "RoomSpawning");
+		//DIE HERE
 	}
 
 }
