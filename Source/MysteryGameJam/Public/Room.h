@@ -37,6 +37,35 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	void FlipWallpaper();
+
+	void DifferentTime();
+
+	void UnmadeBed();
+
+	void AlternateBathroomTiling();
+
+	void CarpetColourChange();
+
+	void LampFlicker();
+
+	void NarrowBedLegs();
+
+	void CuckChairRotated();
+
+	void PersonInCuckChair();
+
+	void DeadBodyBathTub();
+
+	void BloodPoolBathroom();
+
+	void WiltedFlower();
+
+	void CloseBathroomDoor();
+
+	
+
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

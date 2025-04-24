@@ -21,6 +21,7 @@ void ARoom::BeginPlay()
 
 }
 
+
 // Called every frame
 void ARoom::Tick(float DeltaTime)
 {
@@ -30,11 +31,57 @@ void ARoom::Tick(float DeltaTime)
 void ARoom::CheckForAnomalyChanges()
 {
 	Anomaly = GameInstance->GetSubsystem<UAnomalyManager>()->GetAnomaly();
-	if (Anomaly != nullptr)
+
+	if (Anomaly == nullptr)
 	{
-		HasAnomaly = true;
-		DefaultAnomaly();
+		return;
 	}
+
+	HasAnomaly = true;
+	DefaultAnomaly();
+
+	if (Anomaly->FlipWallPaper)
+	{
+		FlipWallpaper();
+	}
+	if (Anomaly->DiffrentTime)
+	{
+		DifferentTime();
+	}
+	if (Anomaly->UnmadeBed)
+	{
+		UnmadeBed();
+	}
+	if (Anomaly->AlternateBathroomTiling)
+	{
+		AlternateBathroomTiling();
+	}
+	if (Anomaly->CarpetColourChange)
+	{
+		CarpetColourChange();
+	}
+	if (Anomaly->LampFlicked)
+	{
+		LampFlicker();
+	}
+	if (Anomaly->NarrowBedLegs)
+	{
+		NarrowBedLegs();
+	}
+	if (Anomaly->CuckChairRotated)
+	{
+		CuckChairRotated();
+	}
+	if (Anomaly->PersonInCuckChair)
+	{
+		PersonInCuckChair();
+	}
+	if (Anomaly->DeadBodyBathTub)
+	{
+		DeadBodyBathTub();
+	}
+	
+
 }
 
 void ARoom::DefaultAnomaly()
@@ -45,5 +92,54 @@ void ARoom::DefaultAnomaly()
 	FVector location = GetActorLocation();
 
 	AActor* newRoom = GetWorld()->SpawnActor<AActor>(DefaultCube, location, FRotator(0,0,0), spawnParams);
+}
+
+
+void ARoom::FlipWallpaper()
+{
+}
+
+void ARoom::DifferentTime()
+{
+}
+
+void ARoom::UnmadeBed()
+{
+}
+
+void ARoom::AlternateBathroomTiling()
+{
+}
+
+void ARoom::CarpetColourChange()
+{
+}
+
+void ARoom::LampFlicker()
+{
+}
+
+void ARoom::NarrowBedLegs()
+{
+}
+
+void ARoom::CuckChairRotated()
+{
+}
+
+void ARoom::PersonInCuckChair()
+{
+}
+
+void ARoom::DeadBodyBathTub()
+{
+}
+
+void ARoom::BloodPoolBathroom()
+{
+}
+
+void ARoom::WiltedFlower()
+{
 }
 
