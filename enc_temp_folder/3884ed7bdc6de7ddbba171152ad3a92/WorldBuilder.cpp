@@ -33,8 +33,8 @@ void AWorldBuilder::SpawnInitRooms()
 	ARoom* newForwardRoom = GetWorld()->SpawnActor<ARoom>(BaseRoom, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorRightVector() * -700), newCurrentRoom->GetActorRotation() + FRotator(0,-90,0), spawnParams);
 	ARoom* newBackRoom = GetWorld()->SpawnActor<ARoom>(BaseRoom, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorForwardVector() * -700), newCurrentRoom->GetActorRotation() + FRotator(0,180,0), spawnParams);
 
-	ADoor* newForwardDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorRightVector() * -350) + (newCurrentRoom->GetActorForwardVector() * -57), newCurrentRoom->GetActorRotation() + FRotator(0, 0, 0), spawnParams);
-	ADoor* newBackDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorForwardVector() * -350) + (newCurrentRoom->GetActorRightVector() * 57), newCurrentRoom->GetActorRotation() + FRotator(0, -90, 0), spawnParams);
+	ADoor* newForwardDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorRightVector() * -350), newCurrentRoom->GetActorRotation() + FRotator(0, 0, 0), spawnParams);
+	ADoor* newBackDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, newCurrentRoom->GetActorLocation() + (newCurrentRoom->GetActorForwardVector() * -350), newCurrentRoom->GetActorRotation() + FRotator(0, -90, 0), spawnParams);
 
 
 	RoomManager->BaseDoor = BaseDoor;

@@ -26,7 +26,7 @@ void URoomManager::SpawnWhenEnter(ARoom* callingRoom, ADoor* doorThatIsEntered)
 	FActorSpawnParameters spawnParams;
 	spawnParams.bNoFail = true;
 
-	ADoor* newForwardDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorRightVector() * -350) + (CurrentRoom->GetActorForwardVector() * -57), CurrentRoom->GetActorRotation() + FRotator(0, 0, 0), spawnParams);
+	ADoor* newForwardDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorRightVector() * -350), CurrentRoom->GetActorRotation() + FRotator(0, 0, 0), spawnParams);
 
 	ForwardDoor = newForwardDoor;
 	ForwardDoor->IsForward = true;
@@ -64,7 +64,7 @@ void URoomManager::SpawnAfterAnimation(ARoom* callingRoom)
 	BackRoom = newBackRoom;
 	ForwardDoor->RoomConnected = ForwardRoom;
 
-	ADoor* newBackDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorForwardVector() * -350) + (CurrentRoom->GetActorRightVector() * 57), CurrentRoom->GetActorRotation() + FRotator(0, -90, 0), spawnParams);
+	ADoor* newBackDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorForwardVector() * -350), CurrentRoom->GetActorRotation() + FRotator(0, -90, 0), spawnParams);
 	
 	newBackDoor->RoomConnected = BackRoom;
 	BackDoor = newBackDoor;
