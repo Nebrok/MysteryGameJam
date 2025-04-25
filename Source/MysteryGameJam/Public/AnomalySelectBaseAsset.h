@@ -77,6 +77,9 @@ public:
 	bool BigToilet;
 	UPROPERTY(EditAnywhere)
 	bool TallLamp;
-
+	UPROPERTY(EditAnywhere)
+	bool Room666;
+	UPROPERTY(EditAnywhere)
+	bool PamphletTableFlipped;
 
 };

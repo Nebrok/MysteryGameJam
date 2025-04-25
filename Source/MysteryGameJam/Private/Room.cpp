@@ -269,7 +269,7 @@ void ARoom::EyesUnderBed()
 
 void ARoom::LampMoved()
 {
-	FloorLampRef->SetRelativeLocation(FloorLampRef->GetRelativeLocation() + FVector(0, 100, 0));
+	FloorLampRef->SetRelativeLocation(FloorLampRef->GetRelativeLocation() + FVector(0, 150, 0));
 }
 
 void ARoom::PaintingMoved()
@@ -327,6 +327,18 @@ void ARoom::BigToilet()
 void ARoom::TallLamp()
 {
 	FloorLampRef->SetRelativeScale3D(FloorLampRef->GetRelativeScale3D() + FVector(0, 0, 0.4));
+}
+
+void ARoom::Room666()
+{
+	Pamphlet->SetMaterial(0, RoomScoreMats[9]);
+}
+
+void ARoom::PamphletTableFlipped()
+{
+	auto quatRotation = PamphletTable->GetRelativeTransform().GetRotation();
+	FRotator newRotation = FRotator(quatRotation.Euler().X, quatRotation.Euler().Z + 180, quatRotation.Euler().Y);
+	PamphletTable->SetRelativeRotation(newRotation);
 }
 
 
