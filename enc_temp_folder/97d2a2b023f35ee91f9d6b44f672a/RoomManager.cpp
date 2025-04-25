@@ -27,6 +27,7 @@ void URoomManager::SpawnWhenEnter(ARoom* callingRoom, ADoor* doorThatIsEntered)
 
 	FActorSpawnParameters spawnParams;
 	spawnParams.bNoFail = true;
+
 	ADoor* newForwardDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorRightVector() * -350) + (CurrentRoom->GetActorForwardVector() * -57), CurrentRoom->GetActorRotation() + FRotator(0, 0, 0), spawnParams);
 
 	ForwardDoor = newForwardDoor;
@@ -90,15 +91,13 @@ AActor* URoomManager::SpawnNewRoom(UClass* baseRoom, FVector location, FRotator 
 
 void URoomManager::CheckCorrectDoor(bool forward)
 {
-	auto scoreSubsystem = GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>();
-
 	if (forward && !CurrentRoom->HasAnomaly || !forward && CurrentRoom->HasAnomaly)
 	{
 		//score ++
 		UE_LOG(LogTemp, Display, TEXT("YAY"));
 
 
-		scoreSubsystem->AddToScore();
+		GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>()->AddToScore();
 
 		ForwardRoom->CheckForAnomalyChanges();
 		return;
@@ -106,5 +105,5 @@ void URoomManager::CheckCorrectDoor(bool forward)
 
 	//score = 0
 	UE_LOG(LogTemp, Display, TEXT("NOUR"));
-	scoreSubsystem->ResetScore();
+	GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>()->ResetScore();
 }

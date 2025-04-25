@@ -41,10 +41,14 @@ void ADoor::OpenDoor()
 	//If correct update room with anomaly chance + increase score
 	//If incorrect, don't run anomaly check + set score to 0
 
+
+
+
 	Rotate = true;
 	UE_LOG(LogTemp, Display, TEXT("The door is being opened"));
 
 	RoomManager->CheckCorrectDoor(IsForward);
 	RoomManager->SpawnWhenEnter(RoomConnected, this);
+
 }
 
