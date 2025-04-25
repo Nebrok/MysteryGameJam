@@ -16,13 +16,13 @@ class MYSTERYGAMEJAM_API UAnomalySelectBaseAsset : public UPrimaryDataAsset
 	
 public:
 	UPROPERTY(EditAnywhere)
-	bool FlipWallPaper;
+	bool PosterGone;
 	UPROPERTY(EditAnywhere)
 	bool DiffrentTime;
 	UPROPERTY(EditAnywhere)
 	bool UnmadeBed;
 	UPROPERTY(EditAnywhere)
-	bool WeatherChange;
+	bool ChairsSwapped;
 	UPROPERTY(EditAnywhere)
 	bool AlternateBathroomTiling;
 	UPROPERTY(EditAnywhere)
@@ -30,7 +30,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	bool LampFlicked;
 	UPROPERTY(EditAnywhere)
-	bool NarrowBedLegs;
+	bool Box4Moved;
 	UPROPERTY(EditAnywhere)
 	bool TVStatic;
 	UPROPERTY(EditAnywhere)
@@ -81,5 +81,7 @@ public:
 	bool Room666;
 	UPROPERTY(EditAnywhere)
 	bool PamphletTableFlipped;
+	UPROPERTY(EditAnywhere)
+	bool AddToiletPaper;
 
 };

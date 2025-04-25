@@ -58,9 +58,9 @@ void ARoom::UpdatePamphlet()
 */
 void ARoom::MassiveIfCheck()
 {
-	if (Anomaly->FlipWallPaper)
+	if (Anomaly->PosterGone)
 	{
-		FlipWallpaper();
+		PosterGone();
 	}
 	if (Anomaly->DiffrentTime)
 	{
@@ -82,9 +82,9 @@ void ARoom::MassiveIfCheck()
 	{
 		LampFlicker();
 	}
-	if (Anomaly->NarrowBedLegs)
+	if (Anomaly->Box4Moved)
 	{
-		NarrowBedLegs();
+		Box4Moved();
 	}
 	if (Anomaly->CuckChairRotated)
 	{
@@ -182,9 +182,9 @@ void ARoom::TestAnomaly()
 	
 }
 
-void ARoom::FlipWallpaper()
+void ARoom::PosterGone()
 {
-
+	
 }
 
 void ARoom::DifferentTime()
@@ -339,6 +339,26 @@ void ARoom::PamphletTableFlipped()
 	auto quatRotation = PamphletTable->GetRelativeTransform().GetRotation();
 	FRotator newRotation = FRotator(quatRotation.Euler().X, quatRotation.Euler().Z + 180, quatRotation.Euler().Y);
 	PamphletTable->SetRelativeRotation(newRotation);
+}
+
+void ARoom::ChairsSwapped()
+{
+	TiltedChair->SetRelativeLocation(FVector (-160, -287, 8.291));
+	NotTiltedChair->SetRelativeLocation(FVector(-238, -317, -1.354));
+	
+	auto quatRotation = NotTiltedChair->GetRelativeTransform().GetRotation();
+	FRotator newRotation = FRotator(quatRotation.Euler().X, quatRotation.Euler().Z -70, quatRotation.Euler().Y);
+	NotTiltedChair->SetRelativeRotation(newRotation);
+}
+
+void ARoom::Box4Moved()
+{
+	Box4->SetRelativeLocation(FVector(-335, 124, 1.53));
+}
+
+void ARoom::AddToiletPaper()
+{
+	ToiletPaperRoll->SetRelativeLocation(FVector(-270, 600, 20.85));
 }
 
 

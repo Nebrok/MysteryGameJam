@@ -93,16 +93,32 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
 	UStaticMeshComponent* PamphletTable;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* TiltedChair;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* NotTiltedChair;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* Box4;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UDecalComponent* Poster;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* ToiletPaperRoll;
+
 	//Static Meshes for spawning to room
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "New Object Reference")
 	UStaticMesh* NewPillow1;
+
 
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	void FlipWallpaper();
+	void PosterGone();
 
 	void DifferentTime();
 
@@ -163,6 +179,12 @@ protected:
 	void Room666();
 
 	void PamphletTableFlipped();
+
+	void ChairsSwapped();
+
+	void Box4Moved();
+
+	void AddToiletPaper();
 
 private:
 	void MassiveIfCheck();
