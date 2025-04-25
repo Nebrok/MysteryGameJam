@@ -77,7 +77,7 @@ public:
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
 	UFUNCTION(BlueprintCallable)
-	ADoor* Interact();
+	AActor* Interact();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool RecieveInputs = true;

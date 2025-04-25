@@ -9,6 +9,7 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "Telephone.h"
 #include "Engine/LocalPlayer.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
@@ -109,7 +110,7 @@ void AMysteryGameJamCharacter::Look(const FInputActionValue& Value)
 	}
 }
 
-ADoor* AMysteryGameJamCharacter::Interact()
+AActor* AMysteryGameJamCharacter::Interact()
 {
 
 	// FHitResult will hold all data returned by our line collision query
@@ -138,13 +139,21 @@ ADoor* AMysteryGameJamCharacter::Interact()
 	{
 		UE_LOG(LogTemp, Log, TEXT("Trace hit actor: %s"), *Hit.GetActor()->GetName());
 		ADoor* doorHit = Cast<ADoor>(Hit.GetActor());
-		
+
 		if (doorHit != nullptr)
 		{
 			doorHit->OpenDoor();
+			return doorHit;
 		}
 
-		return doorHit;
+		ATelephone* telephoneHit = Cast<ATelephone>(Hit.GetActor());
+
+		if (telephoneHit != nullptr)
+		{
+			return telephoneHit;
+		}
+		
+		return Hit.GetActor();
 	}
 	else
 	{
