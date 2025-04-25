@@ -2,6 +2,7 @@
 
 #include "Room.h"
 #include "RoomManager.h"
+#include "ScoreKeeping.h"
 #include "AnomalyManager.h"
 
 // Sets default values
@@ -39,6 +40,11 @@ void ARoom::CheckForAnomalyChanges()
 	HasAnomaly = true;
 
 	MassiveIfCheck();
+}
+
+void ARoom::UpdatePamphlet()
+{
+	//Pamphlet->SetMaterial(0, RoomScoreMats[GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>()->GetScore()]);
 }
 
 /*
@@ -161,6 +167,7 @@ void ARoom::MassiveIfCheck()
 		TallLamp();
 	}
 }
+
 
 void ARoom::SetRoomObjectReferences_Implementation()
 {

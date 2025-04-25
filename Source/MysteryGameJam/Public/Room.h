@@ -84,6 +84,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
 	UStaticMeshComponent* Toilet;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* Pamphlet;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	TArray<UMaterial*> RoomScoreMats;
+
 	//Static Meshes for spawning to room
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "New Object Reference")
 	UStaticMesh* NewPillow1;
@@ -163,6 +169,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetRoomObjectReferences();
+
+	UFUNCTION()
+	void UpdatePamphlet();
 
 	void SetRoomObjectReferences_Implementation();
 

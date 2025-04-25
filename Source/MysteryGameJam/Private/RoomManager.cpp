@@ -25,6 +25,8 @@ void URoomManager::SpawnWhenEnter(ARoom* callingRoom, ADoor* doorThatIsEntered)
 
 	CurrentRoom->ClockTicking->AllowedToTick = true;
 
+	CurrentRoom->UpdatePamphlet();
+
 	FActorSpawnParameters spawnParams;
 	spawnParams.bNoFail = true;
 	ADoor* newForwardDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorRightVector() * -350) + (CurrentRoom->GetActorForwardVector() * -57), CurrentRoom->GetActorRotation() + FRotator(0, 0, 0), spawnParams);
