@@ -73,5 +73,10 @@ public:
 	bool PillowDeleted;
 	UPROPERTY(EditAnywhere)
 	bool TowelsDeleted;
+	UPROPERTY(EditAnywhere)
+	bool BigToilet;
+	UPROPERTY(EditAnywhere)
+	bool TallLamp;
+
 
 };
