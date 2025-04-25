@@ -111,6 +111,10 @@ void AMysteryGameJamCharacter::Look(const FInputActionValue& Value)
 
 ADoor* AMysteryGameJamCharacter::Interact()
 {
+	if (!RecieveInputs)
+	{
+		return nullptr;
+	}
 
 	// FHitResult will hold all data returned by our line collision query
 	FHitResult Hit;
