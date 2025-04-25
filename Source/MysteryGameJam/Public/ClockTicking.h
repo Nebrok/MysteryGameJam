@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "ClockTicking.generated.h"
 
 
@@ -24,6 +25,9 @@ public:
 
 	//UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool AllowedToTick = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USoundBase* TickingSound;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* SecondHand;

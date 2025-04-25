@@ -42,7 +42,12 @@ void UClockTicking::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 	}
 	
 	SecondHand->SetRelativeRotation(SecondHand->GetRelativeRotation().Add(0, 0, 6));
-	
+
+	if (TickingSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, TickingSound, SecondHand->GetRelativeTransform().GetLocation());
+	}
+
 	TimeElapsed = 0;
 	SecondsElapsed++;
 	
