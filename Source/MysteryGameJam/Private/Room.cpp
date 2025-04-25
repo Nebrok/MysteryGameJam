@@ -170,6 +170,22 @@ void ARoom::MassiveIfCheck()
 	{
 		TallLamp();
 	}
+	if (Anomaly->ChairsSwapped)
+	{
+		ChairsSwapped();
+	}
+	if (Anomaly->PamphletTableFlipped)
+	{
+		PamphletTableFlipped();
+	}
+	if (Anomaly->Room666)
+	{
+		Room666();
+	}
+	if (Anomaly->AddToiletPaper)
+	{
+		AddToiletPaper();
+	}
 }
 
 
@@ -358,7 +374,7 @@ void ARoom::Box4Moved()
 
 void ARoom::AddToiletPaper()
 {
-	ToiletPaperRoll->SetRelativeLocation(FVector(-270, 600, 20.85));
+	ToiletPaperRoll->SetRelativeLocation(ToiletPaperRoll->GetRelativeLocation() + FVector(0, 0, 20));
 }
 
 

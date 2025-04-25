@@ -134,6 +134,7 @@ void URoomManager::CheckCorrectDoor(bool forward)
 		{
 			ForwardRoom->UpdatePamphlet();
 			BackRoom->UpdatePamphlet();
+
 			ForwardRoom->CheckForAnomalyChanges();
 			BackRoom->CheckForAnomalyChanges();
 		}

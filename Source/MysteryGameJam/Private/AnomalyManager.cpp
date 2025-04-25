@@ -17,14 +17,14 @@ UAnomalySelectBaseAsset* UAnomalyManager::GetAnomaly()
 	
 	if (anomalyPresent == 0) //DO NOTHING
 	{
-		//UE_LOG(LogTemp, Display, TEXT("There is no anomaly"));
+		UE_LOG(LogTemp, Display, TEXT("There is no anomaly"));
 		return nullptr;
 	}
 	else
 	{
 		int randomAnomaly = rand() % allAnomalies.Num();
 	
-		//UE_LOG(LogTemp, Display, TEXT("There is an anomaly: %d"), randomAnomaly);
+		UE_LOG(LogTemp, Display, TEXT("There is an anomaly: %d"), randomAnomaly);
 	
 		return allAnomalies[randomAnomaly];
 	}
