@@ -30,6 +30,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<ADoor> BaseDoor;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<ARoom> EndRoom;
+
 	void SpawnInitRooms();
 
 public:	
