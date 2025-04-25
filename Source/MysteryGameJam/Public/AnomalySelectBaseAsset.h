@@ -71,5 +71,7 @@ public:
 	bool BedsideRotated;
 	UPROPERTY(EditAnywhere)
 	bool PillowDeleted;
+	UPROPERTY(EditAnywhere)
+	bool TowelsDeleted;
 
 };

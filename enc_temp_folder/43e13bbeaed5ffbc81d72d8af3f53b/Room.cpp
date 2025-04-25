@@ -38,6 +38,7 @@ void ARoom::CheckForAnomalyChanges()
 
 	HasAnomaly = true;
 
+	//TestAnomaly();
 	MassiveIfCheck();
 }
 
@@ -212,9 +213,7 @@ void ARoom::NarrowBedLegs()
 
 void ARoom::CuckChairRotated()
 {
-	auto quatRotation = CuckChair->GetRelativeTransform().GetRotation();
-	FRotator newRotation = FRotator(quatRotation.Euler().X, quatRotation.Euler().Z + 180, quatRotation.Euler().Y);
-	CuckChair->SetRelativeRotation(newRotation);
+
 }
 
 void ARoom::PersonInCuckChair()
@@ -280,9 +279,9 @@ void ARoom::DeleteBox1()
 
 void ARoom::CornerChairRotated()
 {
-	auto quatRotation = CornerChair->GetRelativeTransform().GetRotation();
+	auto quatRotation = CuckChair->GetRelativeTransform().GetRotation();
 	FRotator newRotation = FRotator(quatRotation.Euler().X, quatRotation.Euler().Z + 90, quatRotation.Euler().Y);
-	CornerChair->SetRelativeRotation(newRotation);
+	CuckChair->SetRelativeRotation(newRotation);
 }
 
 void ARoom::BedsideRotated()
@@ -299,8 +298,8 @@ void ARoom::PillowDeleted()
 
 void ARoom::TowelsDeleted()
 {
-	Towel1Ref->DestroyComponent();
-	Towel2Ref->DestroyComponent();
+	Towel1->DestroyComponent();
+	Towel2->DestroyComponent();
 }
 
 
