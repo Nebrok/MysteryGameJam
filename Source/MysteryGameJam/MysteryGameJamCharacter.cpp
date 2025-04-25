@@ -109,7 +109,7 @@ void AMysteryGameJamCharacter::Look(const FInputActionValue& Value)
 	}
 }
 
-ADoor* AMysteryGameJamCharacter::Interact()
+AActor* AMysteryGameJamCharacter::Interact()
 {
 
 	// FHitResult will hold all data returned by our line collision query
