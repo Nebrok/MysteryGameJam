@@ -179,7 +179,7 @@ void ARoom::SetRoomObjectReferences_Implementation()
 
 void ARoom::TestAnomaly()
 {
-	
+	PamphletTableFlipped();
 }
 
 void ARoom::FlipWallpaper()

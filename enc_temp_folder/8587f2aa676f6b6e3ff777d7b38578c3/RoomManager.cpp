@@ -124,7 +124,7 @@ void URoomManager::CheckCorrectDoor(bool forward)
 
 
 		scoreSubsystem->AddToScore();
-
+		CurrentRoom->UpdatePamphlet();
 
 		if (scoreSubsystem->GetScore() >= 8) //Magic Number for num correct need to fix
 		{
@@ -132,8 +132,6 @@ void URoomManager::CheckCorrectDoor(bool forward)
 		}
 		else
 		{
-			ForwardRoom->UpdatePamphlet();
-			BackRoom->UpdatePamphlet();
 			ForwardRoom->CheckForAnomalyChanges();
 			BackRoom->CheckForAnomalyChanges();
 		}
@@ -144,4 +142,5 @@ void URoomManager::CheckCorrectDoor(bool forward)
 	//score = 0
 	UE_LOG(LogTemp, Display, TEXT("NOUR"));
 	scoreSubsystem->ResetScore();
+	CurrentRoom->UpdatePamphlet();
 }

@@ -90,6 +90,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
 	TArray<UMaterial*> RoomScoreMats;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* PamphletTable;
+
 	//Static Meshes for spawning to room
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "New Object Reference")
 	UStaticMesh* NewPillow1;
@@ -156,6 +159,10 @@ protected:
 	void BigToilet();
 
 	void TallLamp();
+
+	void Room666();
+
+	void PamphletTableFlipped();
 
 private:
 	void MassiveIfCheck();
