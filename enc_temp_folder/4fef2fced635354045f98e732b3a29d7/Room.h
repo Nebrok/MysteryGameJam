@@ -70,10 +70,10 @@ public:
 	UStaticMeshComponent* Box3;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
-	UStaticMeshComponent* Towel1Ref;
+	UStaticMeshComponent* Towel1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
-	UStaticMeshComponent* Towel2Ref;
+	UStaticMeshComponent* Towel2;
 
 
 	//Static Meshes for spawning to room
