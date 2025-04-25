@@ -44,7 +44,11 @@ void ARoom::CheckForAnomalyChanges()
 
 void ARoom::UpdatePamphlet()
 {
-	//Pamphlet->SetMaterial(0, RoomScoreMats[GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>()->GetScore()]);
+	if (Pamphlet)
+	{
+		Pamphlet->SetMaterial(0, RoomScoreMats[GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>()->GetScore()]);
+	}
+
 }
 
 /*
