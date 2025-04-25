@@ -152,20 +152,18 @@ void ARoom::MassiveIfCheck()
 	{
 		TowelsDeleted();
 	}
+	if (Anomaly->BigToilet)
+	{
+		BigToilet();
+	}
+	if (Anomaly->TallLamp)
+	{
+		TallLamp();
+	}
 }
 
 void ARoom::SetRoomObjectReferences_Implementation()
 {
-}
-
-void ARoom::DefaultAnomaly()
-{
-	FActorSpawnParameters spawnParams;
-	spawnParams.bNoFail = true;
-
-	FVector location = GetActorLocation();
-
-	AActor* newRoom = GetWorld()->SpawnActor<AActor>(DefaultCube, location, FRotator(0,0,0), spawnParams);
 }
 
 void ARoom::TestAnomaly()
@@ -239,6 +237,11 @@ void ARoom::CloseBathroomDoor()
 
 void ARoom::SwappedFurniture1()
 {
+	FVector tempPos = BedLamp->GetRelativeLocation();
+
+	BedLamp->SetRelativeLocation(Box3->GetRelativeLocation());
+	Box3->SetRelativeLocation(tempPos);
+
 }
 
 void ARoom::SwappedFurniture2()
@@ -255,6 +258,7 @@ void ARoom::EyesUnderBed()
 
 void ARoom::LampMoved()
 {
+	FloorLampRef->SetRelativeLocation(FloorLampRef->GetRelativeLocation() + FVector(0, 100, 0));
 }
 
 void ARoom::PaintingMoved()
@@ -301,6 +305,17 @@ void ARoom::TowelsDeleted()
 {
 	Towel1Ref->DestroyComponent();
 	Towel2Ref->DestroyComponent();
+}
+
+void ARoom::BigToilet()
+{
+	Toilet->SetRelativeScale3D(Toilet->GetRelativeScale3D() * 1.5f);
+	Sink->SetRelativeScale3D(Sink->GetRelativeScale3D() * 1.5f);
+}
+
+void ARoom::TallLamp()
+{
+	FloorLampRef->SetRelativeScale3D(FloorLampRef->GetRelativeScale3D() + FVector(0, 0, 0.4));
 }
 
 
