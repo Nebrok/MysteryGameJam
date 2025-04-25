@@ -38,17 +38,23 @@ public:
 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<ARoom> BaseRoom;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<ADoor> BaseDoor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<ARoom> EndRoom;
 
 	UFUNCTION(BlueprintCallable)
 	void SpawnWhenEnter(ARoom* callingRoom, ADoor* doorThatIsEntered);
 
 	UFUNCTION(BlueprintCallable)
 	void SpawnAfterAnimation(ARoom* callingRoom);
-	
-	FVector GetBackRoomLocation();
 
-	AActor* SpawnNewRoom(UClass* baseRoom, FVector location, FRotator rotation);
+	ARoom* SpawnNewRoom(FVector location, FRotator rotation);
+
+	ARoom* SpawnEndRoom(FVector location, FRotator rotation);
 
 	void CheckCorrectDoor(bool forward);
 

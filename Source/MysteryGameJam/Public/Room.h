@@ -75,6 +75,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
 	UStaticMeshComponent* Towel2Ref;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* BedLamp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* Sink;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* Toilet;
 
 	//Static Meshes for spawning to room
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "New Object Reference")
@@ -139,6 +147,10 @@ protected:
 
 	void TowelsDeleted();
 
+	void BigToilet();
+
+	void TallLamp();
+
 private:
 	void MassiveIfCheck();
 
@@ -153,10 +165,6 @@ public:
 	void SetRoomObjectReferences();
 
 	void SetRoomObjectReferences_Implementation();
-
-
-	UFUNCTION(BlueprintCallable)
-	void DefaultAnomaly();
 
 	UFUNCTION(BlueprintCallable)
 	void TestAnomaly();

@@ -27,7 +27,6 @@ void URoomManager::SpawnWhenEnter(ARoom* callingRoom, ADoor* doorThatIsEntered)
 
 	FActorSpawnParameters spawnParams;
 	spawnParams.bNoFail = true;
-
 	ADoor* newForwardDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorRightVector() * -350) + (CurrentRoom->GetActorForwardVector() * -57), CurrentRoom->GetActorRotation() + FRotator(0, 0, 0), spawnParams);
 
 	ForwardDoor = newForwardDoor;
@@ -59,51 +58,87 @@ void URoomManager::SpawnAfterAnimation(ARoom* callingRoom)
 	FActorSpawnParameters spawnParams;
 	spawnParams.bNoFail = true;
 
-	ARoom* newForwardRoom = GetWorld()->SpawnActor<ARoom>(CurrentRoom->BaseRoom, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorRightVector() * -700), CurrentRoom->GetActorRotation() + FRotator(0, -90, 0), spawnParams);
-	ARoom* newBackRoom = GetWorld()->SpawnActor<ARoom>(CurrentRoom->BaseRoom, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorForwardVector() * -700), CurrentRoom->GetActorRotation() + FRotator(0, 180, 0), spawnParams);
+	FVector currentRoomLocation = CurrentRoom->GetActorLocation();
+	FRotator currentRoomRotation = CurrentRoom->GetActorRotation();
+
+	ARoom* newForwardRoom;
+	ARoom* newBackRoom;
+
+	if (GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>()->GetScore() == 7) //More magic numbers
+	{
+		if (CurrentRoom->HasAnomaly)
+		{
+			newForwardRoom = SpawnNewRoom(currentRoomLocation + (CurrentRoom->GetActorRightVector() * -700), currentRoomRotation + FRotator(0, -90, 0));
+			newBackRoom = SpawnEndRoom(currentRoomLocation + (CurrentRoom->GetActorForwardVector() * -700), currentRoomRotation + FRotator(0, 180, 0));
+		}
+		else
+		{
+			newForwardRoom = SpawnEndRoom(currentRoomLocation + (CurrentRoom->GetActorRightVector() * -700), currentRoomRotation + FRotator(0, -90, 0));
+			newBackRoom = SpawnNewRoom(currentRoomLocation + (CurrentRoom->GetActorForwardVector() * -700), currentRoomRotation + FRotator(0, 180, 0));
+		}
+	}
+	else
+	{
+		newForwardRoom = SpawnNewRoom(currentRoomLocation + (CurrentRoom->GetActorRightVector() * -700), currentRoomRotation + FRotator(0, -90, 0));
+		newBackRoom = SpawnNewRoom(currentRoomLocation + (CurrentRoom->GetActorForwardVector() * -700), currentRoomRotation + FRotator(0, 180, 0));
+	}
 
 	ForwardRoom = newForwardRoom;
 	BackRoom = newBackRoom;
 	ForwardDoor->RoomConnected = ForwardRoom;
 
-	ADoor* newBackDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorForwardVector() * -350) + (CurrentRoom->GetActorRightVector() * 57), CurrentRoom->GetActorRotation() + FRotator(0, -90, 0), spawnParams);
+	ADoor* newBackDoor = GetWorld()->SpawnActor<ADoor>(BaseDoor, currentRoomLocation + (CurrentRoom->GetActorForwardVector() * -350) + (CurrentRoom->GetActorRightVector() * 57), currentRoomRotation + FRotator(0, -90, 0), spawnParams);
 	
 	newBackDoor->RoomConnected = BackRoom;
 	BackDoor = newBackDoor;
 }
 
-FVector URoomManager::GetBackRoomLocation()
-{
-	FVector location;
-	location = CurrentRoom->GetActorLocation() + (CurrentRoom->GetActorForwardVector() * -700);
-	return location;
-}
-
-AActor* URoomManager::SpawnNewRoom(UClass* baseRoom, FVector location, FRotator rotation)
+ARoom* URoomManager::SpawnNewRoom(FVector location, FRotator rotation)
 {
 	FActorSpawnParameters spawnParams;
 	spawnParams.bNoFail = true;
 
 
-	AActor* newRoom = GetWorld()->SpawnActor<ARoom>(baseRoom, location, rotation, spawnParams);
+	ARoom* newRoom = GetWorld()->SpawnActor<ARoom>(BaseRoom, location, rotation, spawnParams);
+	return newRoom;
+}
+
+ARoom* URoomManager::SpawnEndRoom(FVector location, FRotator rotation)
+{
+	FActorSpawnParameters spawnParams;
+	spawnParams.bNoFail = true;
+
+
+	ARoom* newRoom = GetWorld()->SpawnActor<ARoom>(EndRoom, location, rotation, spawnParams);
 	return newRoom;
 }
 
 void URoomManager::CheckCorrectDoor(bool forward)
 {
+	auto scoreSubsystem = GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>();
+
 	if (forward && !CurrentRoom->HasAnomaly || !forward && CurrentRoom->HasAnomaly)
 	{
 		//score ++
 		UE_LOG(LogTemp, Display, TEXT("YAY"));
 
 
-		GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>()->AddToScore();
+		scoreSubsystem->AddToScore();
+		
+		if (scoreSubsystem->GetScore() >= 8) //Magic Number for num correct need to fix
+		{
+			//Dont worry about it
+		}
+		else
+		{
+			ForwardRoom->CheckForAnomalyChanges();
+			BackRoom->CheckForAnomalyChanges();
+		}
 
-		ForwardRoom->CheckForAnomalyChanges();
 		return;
 	}
 
 	//score = 0
 	UE_LOG(LogTemp, Display, TEXT("NOUR"));
-	GetWorld()->GetGameInstance()->GetSubsystem<UScoreKeeping>()->ResetScore();
+	scoreSubsystem->ResetScore();
 }

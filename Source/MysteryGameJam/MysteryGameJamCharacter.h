@@ -79,6 +79,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	ADoor* Interact();
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool RecieveInputs = true;
 };
 
