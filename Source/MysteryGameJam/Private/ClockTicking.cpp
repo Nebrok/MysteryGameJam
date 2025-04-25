@@ -45,7 +45,7 @@ void UClockTicking::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 
 	if (TickingSound)
 	{
-		UGameplayStatics::PlaySoundAtLocation(this, TickingSound, SecondHand->GetRelativeTransform().GetLocation());
+		UGameplayStatics::PlaySoundAtLocation(this, TickingSound, TickPos);
 	}
 
 	TimeElapsed = 0;

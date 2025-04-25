@@ -27,6 +27,9 @@ public:
 	bool AllowedToTick = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector TickPos;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USoundBase* TickingSound;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
