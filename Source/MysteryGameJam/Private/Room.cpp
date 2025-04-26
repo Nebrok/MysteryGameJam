@@ -186,6 +186,10 @@ void ARoom::MassiveIfCheck()
 	{
 		AddToiletPaper();
 	}
+	if (Anomaly->SwapMiddleChair)
+	{
+		SwapMiddleChair();
+	}
 }
 
 
@@ -244,6 +248,7 @@ void ARoom::CuckChairRotated()
 
 void ARoom::PersonInCuckChair()
 {
+	PersonSitting->SetRelativeLocation(FVector(60.68, 110.85, -9.32));
 }
 
 void ARoom::DeadBodyBathTub()
@@ -375,6 +380,12 @@ void ARoom::Box4Moved()
 void ARoom::AddToiletPaper()
 {
 	ToiletPaperRoll->SetRelativeLocation(ToiletPaperRoll->GetRelativeLocation() + FVector(0, 0, 20));
+}
+
+void ARoom::SwapMiddleChair()
+{
+	ExtraChairRef->SetRelativeLocation(ExtraChairRef->GetRelativeLocation() + FVector(0, 0, 110));
+	CuckChair->SetRelativeLocation(CuckChair->GetRelativeLocation() + FVector(0, 0, -200));
 }
 
 

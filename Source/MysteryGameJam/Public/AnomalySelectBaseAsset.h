@@ -83,5 +83,7 @@ public:
 	bool PamphletTableFlipped;
 	UPROPERTY(EditAnywhere)
 	bool AddToiletPaper;
+	UPROPERTY(EditAnywhere)
+	bool SwapMiddleChair;
 
 };
