@@ -170,6 +170,26 @@ void ARoom::MassiveIfCheck()
 	{
 		TallLamp();
 	}
+	if (Anomaly->ChairsSwapped)
+	{
+		ChairsSwapped();
+	}
+	if (Anomaly->PamphletTableFlipped)
+	{
+		PamphletTableFlipped();
+	}
+	if (Anomaly->Room666)
+	{
+		Room666();
+	}
+	if (Anomaly->AddToiletPaper)
+	{
+		AddToiletPaper();
+	}
+	if (Anomaly->SwapMiddleChair)
+	{
+		SwapMiddleChair();
+	}
 }
 
 
@@ -179,7 +199,7 @@ void ARoom::SetRoomObjectReferences_Implementation()
 
 void ARoom::TestAnomaly()
 {
-	AddToiletPaper();
+	PersonInCuckChair();
 }
 
 void ARoom::PosterGone()
@@ -228,6 +248,7 @@ void ARoom::CuckChairRotated()
 
 void ARoom::PersonInCuckChair()
 {
+	PersonSitting->SetRelativeLocation(FVector(60.68, 110.85, -9.32));
 }
 
 void ARoom::DeadBodyBathTub()
@@ -358,7 +379,13 @@ void ARoom::Box4Moved()
 
 void ARoom::AddToiletPaper()
 {
-	ToiletPaperRoll->SetRelativeLocation(FVector(-270, 600, 20.85));
+	ToiletPaperRoll->SetRelativeLocation(ToiletPaperRoll->GetRelativeLocation() + FVector(0, 0, 20));
+}
+
+void ARoom::SwapMiddleChair()
+{
+	ExtraChairRef->SetRelativeLocation(ExtraChairRef->GetRelativeLocation() + FVector(0, 0, 110));
+	CuckChair->SetRelativeLocation(CuckChair->GetRelativeLocation() + FVector(0, 0, -200));
 }
 
 

@@ -108,6 +108,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
 	UStaticMeshComponent* ToiletPaperRoll;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* ExtraChairRef;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	USkeletalMeshComponent* PersonSitting;
+
 	//Static Meshes for spawning to room
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "New Object Reference")
 	UStaticMesh* NewPillow1;
@@ -185,6 +191,8 @@ protected:
 	void Box4Moved();
 
 	void AddToiletPaper();
+	
+	void SwapMiddleChair();
 
 private:
 	void MassiveIfCheck();
