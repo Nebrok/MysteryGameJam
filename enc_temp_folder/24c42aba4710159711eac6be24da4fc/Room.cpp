@@ -199,7 +199,7 @@ void ARoom::SetRoomObjectReferences_Implementation()
 
 void ARoom::TestAnomaly()
 {
-	PersonInCuckChair();
+	
 }
 
 void ARoom::PosterGone()
@@ -249,6 +249,7 @@ void ARoom::CuckChairRotated()
 void ARoom::PersonInCuckChair()
 {
 	PersonSitting->SetRelativeLocation(FVector(60.68, 110.85, -9.32));
+	CuckChairPersonJumpScare = true;
 }
 
 void ARoom::DeadBodyBathTub()

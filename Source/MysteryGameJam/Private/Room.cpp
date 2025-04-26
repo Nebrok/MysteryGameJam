@@ -249,6 +249,7 @@ void ARoom::CuckChairRotated()
 void ARoom::PersonInCuckChair()
 {
 	PersonSitting->SetRelativeLocation(FVector(60.68, 110.85, -9.32));
+	CuckChairPersonJumpScare = true;
 }
 
 void ARoom::DeadBodyBathTub()

@@ -114,6 +114,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
 	USkeletalMeshComponent* PersonSitting;
 
+	UPROPERTY(BlueprintReadOnly)
+	bool CuckChairPersonJumpScare;
+
+
+
 	//Static Meshes for spawning to room
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "New Object Reference")
 	UStaticMesh* NewPillow1;
