@@ -4,7 +4,6 @@
 #include "RoomManager.h"
 #include "ScoreKeeping.h"
 #include "AnomalyManager.h"
-#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 ARoom::ARoom()
@@ -210,18 +209,13 @@ void ARoom::PosterGone()
 
 void ARoom::DifferentTime()
 {
-
-	int hour = UKismetMathLibrary::Now().GetHour();
-	int minute = UKismetMathLibrary::Now().GetMinute();
-
 	auto minuteQuatRotation = MinuteHand->GetRelativeTransform().GetRotation();
-	FRotator minuteRotation = FRotator(0, 0, 360 / 60 * minute);
+	FRotator minuteRotation = FRotator(0, 0, 210);
 	MinuteHand->SetRelativeRotation(minuteRotation);
 
 	auto hourQuatRotation = HourHand->GetRelativeTransform().GetRotation();
-	FRotator hourRotation = FRotator(0, 0, 360 / 12 * (hour + (minute / 60.0f)));
+	FRotator hourRotation = FRotator(0, 0, 105);
 	HourHand->SetRelativeRotation(hourRotation);
-
 }
 
 void ARoom::UnmadeBed()
