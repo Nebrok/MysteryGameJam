@@ -85,5 +85,7 @@ public:
 	bool AddToiletPaper;
 	UPROPERTY(EditAnywhere)
 	bool SwapMiddleChair;
+	UPROPERTY(EditAnywhere)
+	bool BricksNotInPicture;
 
 };

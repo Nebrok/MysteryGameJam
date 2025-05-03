@@ -191,6 +191,10 @@ void ARoom::MassiveIfCheck()
 	{
 		SwapMiddleChair();
 	}
+	if (Anomaly->BricksNotInPicture) 
+	{
+		BricksNotInPicture();
+	}
 }
 
 
@@ -200,7 +204,7 @@ void ARoom::SetRoomObjectReferences_Implementation()
 
 void ARoom::TestAnomaly()
 {
-	
+
 }
 
 void ARoom::PosterGone()
@@ -394,5 +398,11 @@ void ARoom::SwapMiddleChair()
 	ExtraChairRef->SetRelativeLocation(ExtraChairRef->GetRelativeLocation() + FVector(0, 0, 110));
 	CuckChair->SetRelativeLocation(CuckChair->GetRelativeLocation() + FVector(0, 0, -200));
 }
+
+void ARoom::BricksNotInPicture()
+{
+	BricksPicture->SetMaterial(0, BricksPictureEmptyMat);
+}
+
 
 

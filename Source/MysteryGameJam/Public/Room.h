@@ -114,6 +114,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
 	USkeletalMeshComponent* PersonSitting;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UStaticMeshComponent* BricksPicture;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Existing Object Reference")
+	UMaterial* BricksPictureEmptyMat;
+
 	UPROPERTY(BlueprintReadOnly)
 	bool CuckChairPersonJumpScare;
 
@@ -198,6 +204,8 @@ protected:
 	void AddToiletPaper();
 	
 	void SwapMiddleChair();
+
+	void BricksNotInPicture();
 
 private:
 	void MassiveIfCheck();
